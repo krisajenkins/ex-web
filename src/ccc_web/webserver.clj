@@ -33,6 +33,6 @@
   (route/not-found "Page not found"))
 
 (def app
-  (-> main-routes
+  (-> #'main-routes
       handler/site
       wrap-base-url))
