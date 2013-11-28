@@ -14,6 +14,6 @@
 
                  ;; Database
                  [org.clojure/java.jdbc "0.3.0-beta2"]]
-  :plugins [[lein-ring "0.7.1"]]
+  :plugins [[lein-ring "0.8.8"]]
   :ring {:handler ccc-web.webserver/app}
   :profiles {:dev {:dependencies [[org.apache.derby/derby "10.10.1.1"]]}})

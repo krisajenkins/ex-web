@@ -2,15 +2,25 @@
   (:require [clojure.java.jdbc :as sql])
   (:import [java.util Date]))
 
-(def db-spec {:subprotocol "derby"
-               :subname (gensym "memory:")
-               :create true})
+;;; Define a DB descriptor.
+(defonce db-spec {:subprotocol "derby"
+                  :subname (gensym "memory:")
+                  :create true})
 
-(defonce schema
-  (do
-    (sql/execute! db-spec ["CREATE TABLE log (uri VARCHAR(200), time DATE)"])
-     :ok))
+;;; In-memory Database wrangling:
+(defonce schema-created?
+  (boolean
+   (do
+     (sql/execute! db-spec ["CREATE TABLE log (uri VARCHAR(200), time DATE)"])
+     :ok)))
 
+(defn drop-db
+  []
+  (sql/get-connection (-> db-spec
+                          (dissoc :create)
+                          (assoc :drop true))))
+
+;;; Actual Work:
 (defn current-time
   []
   (-> (sql/query db-spec ["SELECT current_timestamp AS time FROM sysibm.sysdummy1"])
