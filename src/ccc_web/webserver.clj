@@ -40,6 +40,3 @@
   (jetty/run-jetty #'app
                    {:port 8000
                     :join? false}))
-
-(.stop server)
-(.start server)
