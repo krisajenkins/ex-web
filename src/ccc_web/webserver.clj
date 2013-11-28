@@ -29,9 +29,9 @@
 (defroutes main-routes
   (GET "/" [] (index-page))
 
-  (GET "/image/:width/:height"
-       [width height]
-       (format "%sx%s" width height))
+  (GET "/kittens/:number"
+       [number]
+       (format "Your number is: %s" number))
 
   (route/resources "/")
   (route/not-found "Page not found"))
