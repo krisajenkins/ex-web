@@ -29,6 +29,10 @@
 (defroutes main-routes
   (GET "/" [] (index-page))
 
+  (GET "/image/:width/:height"
+       [width height]
+       (format "%sx%s" width height))
+
   (route/resources "/")
   (route/not-found "Page not found"))
 
