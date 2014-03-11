@@ -10,9 +10,7 @@
 ;;; In-memory Database wrangling:
 (defonce schema-created?
   (boolean
-   (do
-     (sql/execute! db-spec ["CREATE TABLE log (uri VARCHAR(200), time DATE)"])
-     :ok)))
+   (sql/execute! db-spec ["CREATE TABLE log (uri VARCHAR(200), time DATE)"])))
 
 (defn drop-db
   []
