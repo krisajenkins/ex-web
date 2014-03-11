@@ -13,7 +13,7 @@
                  [hiccup "1.0.5"]
 
                  ;; Database
-                 [org.clojure/java.jdbc "0.3.3"]]
+                 [yesql "0.4.0"]]
   :plugins [[lein-ring "0.8.10"]]
   :ring {:handler ex-web.webserver/app}
   :profiles {:dev {:dependencies [[org.apache.derby/derby "10.10.1.1"]]}})

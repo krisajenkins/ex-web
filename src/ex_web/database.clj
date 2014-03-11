@@ -1,5 +1,5 @@
 (ns ex-web.database
-  (:require [clojure.java.jdbc :as sql])
+  (:require [yesql.core :refer [defqueries]])
   (:import [java.util Date]))
 
 ;;; Define a DB descriptor.
@@ -7,27 +7,19 @@
               :subname (gensym "memory:")
               :create true})
 
+(defqueries "ex_web/queries.sql")
+
 ;;; In-memory Database wrangling:
 (defonce schema-created?
   (boolean
-   (sql/execute! db-spec ["CREATE TABLE log (uri VARCHAR(200), time DATE)"])))
-
-(defn drop-db
-  []
-  (sql/get-connection (-> db-spec
-                          (dissoc :create)
-                          (assoc :drop true))))
+   (create-log-table! db-spec)))
 
 ;;; Actual Work:
 (defn current-time
   []
-  (-> (sql/query db-spec
-                 ["SELECT current_timestamp AS time FROM sysibm.sysdummy1"])
+  (-> (current-database-time db-spec)
       first
       :time))
 
-;; (sql/insert! db-spec :log
-;;              {:uri "/" :time (Date.)}
-;;              {:uri "/" :time (Date.)})
-
-;; (sql/query db-spec ["SELECT * FROM log"])
+;; (insert-log! db-spec "/" (Date.))
+;; (fetch-logs db-spec)
