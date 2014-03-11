@@ -3,9 +3,9 @@
   (:import [java.util Date]))
 
 ;;; Define a DB descriptor.
-(defonce db-spec {:subprotocol "derby"
-                  :subname (gensym "memory:")
-                  :create true})
+(def db-spec {:subprotocol "derby"
+              :subname (gensym "memory:")
+              :create true})
 
 ;;; In-memory Database wrangling:
 (defonce schema-created?
