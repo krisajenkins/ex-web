@@ -1,4 +1,4 @@
-(defproject ccc-web "0.1.0-SNAPSHOT"
+(defproject ex-web "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
@@ -15,5 +15,5 @@
                  ;; Database
                  [org.clojure/java.jdbc "0.3.0-beta2"]]
   :plugins [[lein-ring "0.8.8"]]
-  :ring {:handler ccc-web.webserver/app}
+  :ring {:handler ex-web.webserver/app}
   :profiles {:dev {:dependencies [[org.apache.derby/derby "10.10.1.1"]]}})

@@ -1,4 +1,4 @@
-(ns ccc-web.database
+(ns ex-web.database
   (:require [clojure.java.jdbc :as sql])
   (:import [java.util Date]))
 

@@ -1,6 +1,6 @@
-# ccc-web
+# ex-web
 
-Simple Compojure Demo from the Crash Course in Clojure.
+A Compojure Demo from the Function Programming With Clojure course.
 
 ## License
 

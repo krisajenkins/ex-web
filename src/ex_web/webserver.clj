@@ -1,4 +1,4 @@
-(ns ccc-web.webserver
+(ns ex-web.webserver
   (:require [clojure.pprint :refer [pprint]]
             [compojure.core :refer :all]
             [compojure.route :as route]
@@ -7,7 +7,7 @@
             [hiccup.core :refer :all]
             [hiccup.page :refer :all]
             [hiccup.middleware :refer [wrap-base-url]]
-            [ccc-web.database :as db]))
+            [ex-web.database :as db]))
 
 (defn index-page
   []
