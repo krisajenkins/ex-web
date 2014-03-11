@@ -10,10 +10,10 @@
                  ;; Web
                  [compojure "1.1.6"]
                  [ring "1.2.1"]
-                 [hiccup "1.0.4"]
+                 [hiccup "1.0.5"]
 
                  ;; Database
-                 [org.clojure/java.jdbc "0.3.0-beta2"]]
+                 [org.clojure/java.jdbc "0.3.3"]]
   :plugins [[lein-ring "0.8.8"]]
   :ring {:handler ex-web.webserver/app}
   :profiles {:dev {:dependencies [[org.apache.derby/derby "10.10.1.1"]]}})
