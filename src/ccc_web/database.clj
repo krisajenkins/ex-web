@@ -23,7 +23,8 @@
 ;;; Actual Work:
 (defn current-time
   []
-  (-> (sql/query db-spec ["SELECT current_timestamp AS time FROM sysibm.sysdummy1"])
+  (-> (sql/query db-spec
+                 ["SELECT current_timestamp AS time FROM sysibm.sysdummy1"])
       first
       :time))
 

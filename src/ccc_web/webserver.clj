@@ -24,7 +24,7 @@
            [:img.thumbnail {:src "/kitty.jpg"
                             :alt "Kitty"}]
            [:div "The time is "
-            [:span.label.label-default (db/current-time)]]]])) 
+            [:span.label.label-default (db/current-time)]]]]))
 
 (defroutes main-routes
   (GET "/" [] (index-page))
